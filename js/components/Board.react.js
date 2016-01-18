@@ -1,6 +1,7 @@
-var React = require('react');
+var React  = require('react');
 var Square = require('./Square.react');
 var Piece  = require('./Piece.react');
+var movePiece = require('./Game.react').movePiece;
 
 var Board = React.createClass({
 
@@ -13,12 +14,17 @@ var Board = React.createClass({
 
     return (
       <div key={i}
-            style={{ width: '6.25%', height: '6.25%' }}>
+           style={{ width: '6.25%', height: '6.25%' }}
+           onClick={this.handleSquareClick.bind(this, x, y)}>
         <Square>
           {piece}
         </Square>
       </div>
     );
+  },
+
+  handleSquareClick: function(targetX, targetY) {
+    movePiece(targetX, targetY);
   },
 
   render: function() {

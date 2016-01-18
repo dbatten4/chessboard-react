@@ -1,8 +1,11 @@
-var React = require('react');
+var React    = require('react');
 var ReactDOM = require('react-dom');
-var Board = require('./components/Board.react');
+var Board    = require('./components/Board.react');
+var observe  = require('./components/Game.react').observe;
 
-ReactDOM.render(
-  <Board piecePosition={[0,0]} />,
-  document.getElementById('root')
-);
+observe(function(piecePosition) {
+  ReactDOM.render(
+    <Board piecePosition={piecePosition} />,
+    document.getElementById('root')
+  );
+});
