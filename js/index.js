@@ -1,5 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+var React = require('react');
+var ReactDOM = require('react-dom');
+var Piece = require('./components/Piece.react');
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <Piece />,
+  document.getElementById('root')
+);

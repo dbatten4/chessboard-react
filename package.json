@@ -1,12 +1,11 @@
 {
-  "name": "React Chessboard",
+  "name": "react-chessboard",
   "version": "1.0.0",
   "description": "A simple chessboard built with React",
   "scripts": {
     "start": "node server.js",
-    "build": "browserify . -t [envify --NODE_ENV production] | uglifyjs -cm >
-js/bundle.min.js",
-    "lint": "eslint src"
+    "build": "browserify . -t [envify --NODE_ENV production] | uglifyjs -cm > js/bundle.min.js",
+    "lint": "eslint js"
   },
   "repository": {
     "type": "git",
@@ -53,11 +52,11 @@ js/bundle.min.js",
     "object-assign": "^1.0.0",
     "react": "^0.14.0",
     "react-dom": "^0.14.0"
-  }
+  },
   "browserify": {
     "transform": [
       "reactify",
       "envify"
     ]
-  },
+  }
 }
