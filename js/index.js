@@ -1,11 +1,8 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Piece = require('./components/Piece.react');
-var Square = require('./components/Square.react');
+var Board = require('./components/Board.react');
 
 ReactDOM.render(
-  <Square>
-    <Piece />
-  </Square>,
+  <Board piecePosition={[0,0]} />,
   document.getElementById('root')
 );
