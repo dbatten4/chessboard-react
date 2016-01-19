@@ -48,7 +48,7 @@ var Board  = React.createClass({
     (function addSquare(index) {
       squares.push(self.renderSquare(index));
       index ++;
-      if(index > 256) { return };
+      if(index >= 256) { return };
       addSquare(index);
     }(0));
 
