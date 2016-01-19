@@ -1,6 +1,6 @@
 var React  = require('react');
 var Square = require('./Square.react');
-var Piece  = require('./Piece.react');
+//var Piece  = require('./Piece.react');
 var movePiece = require('./Game.react').movePiece;
 
 var Board = React.createClass({
@@ -10,12 +10,19 @@ var Board = React.createClass({
     var y = Math.floor(i / 16);
     var pieceX = this.props.piecePosition[0];
     var pieceY = this.props.piecePosition[1];
-    var piece  = (x === pieceX && y === pieceY) ? <Piece /> : null;
+    var piece  = (x === pieceX && y === pieceY) ?
+      <span data-id={i}
+            key={i}
+            draggable="true">
+        test
+      </span> :
+      null;
 
     return (
       <div key={i}
            style={{ width: '6.25%', height: '6.25%' }}
-           onClick={this.handleSquareClick.bind(this, x, y)}>
+           onDragOver={this.dragOver}
+           onDrop={this.drop.bind(this, x, y)}>
         <Square>
           {piece}
         </Square>
@@ -23,7 +30,12 @@ var Board = React.createClass({
     );
   },
 
-  handleSquareClick: function(targetX, targetY) {
+  dragOver: function(e) {
+    e.preventDefault();
+    return false;
+  },
+
+  drop: function(targetX, targetY) {
     movePiece(targetX, targetY);
   },
 
