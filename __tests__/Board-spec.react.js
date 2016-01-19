@@ -15,4 +15,11 @@ describe('Board', function() {
     expect(TestUtils.isCompositeComponent(board)).toBeTruthy();
   });
 
+  it('should have 256 squares', function() {
+    var Square = require('../js/components/Square.react');
+    var board = TestUtils.renderIntoDocument(<Board piecePosition={[0,0]} />);
+    var squares = TestUtils.scryRenderedComponentsWithType(board, Square);
+    expect(squares.length).toEqual(256);
+  });
+
 });
