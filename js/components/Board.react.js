@@ -1,9 +1,7 @@
 var React  = require('react');
 var Square = require('./Square.react');
-//var Piece  = require('./Piece.react');
+var Board  = React.createClass({
 var movePiece = require('./Game.react').movePiece;
-
-var Board = React.createClass({
 
   renderSquare: function(i) {
     var x = i % 16;
@@ -11,11 +9,15 @@ var Board = React.createClass({
     var pieceX = this.props.piecePosition[0];
     var pieceY = this.props.piecePosition[1];
     var piece  = (x === pieceX && y === pieceY) ?
-      <span data-id={i}
-            key={i}
-            draggable="true">
-        test
-      </span> :
+      <div data-id={i}
+           key={i}
+           style={{
+             backgroundColor: 'blue',
+             width:  '100%',
+             height: '100%'
+           }}
+           draggable="true">
+      </div> :
       null;
 
     return (
@@ -51,11 +53,11 @@ var Board = React.createClass({
 
     return (
       <div style={{
-        width:    '100%',
-        height:   '100%',
-        display:  'flex',
-        flexWrap: 'wrap'
-      }}>
+             width:    '100%',
+             height:   '100%',
+             display:  'flex',
+             flexWrap: 'wrap'
+           }}>
         {squares}
       </div>
     );
