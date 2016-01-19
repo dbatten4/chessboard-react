@@ -36,8 +36,18 @@ describe('Board', function() {
     shallowRenderer.render(elt);
     var result = shallowRenderer.getRenderOutput();
     var rootSquareElementChildren; // root div which contains piece
-    rootSquareElementChildren = result.props.children[0].props.children.props.children;
+    rootSquareElementChildren = result.props.children[0].props.children.props.children; // children[0] corresponds to first square i.e. square 0,0
     expect(rootSquareElementChildren).not.toBe(null);
+  });
+
+  it('should have a draggable piece', function() {
+    var elt = (<Board piecePosition={[0,0]} />);
+    var shallowRenderer = TestUtils.createRenderer();
+    shallowRenderer.render(elt);
+    var result = shallowRenderer.getRenderOutput();
+    var rootSquareElementChildren; 
+    rootSquareElementChildren = result.props.children[0].props.children.props.children;
+    expect(rootSquareElementChildren.props.draggable).toEqual('true');
   });
 
 
