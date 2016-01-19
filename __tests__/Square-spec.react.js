@@ -15,4 +15,10 @@ describe('Square', function() {
     expect(TestUtils.isCompositeComponent(square)).toBeTruthy();
   });
 
+  it('renders a div', function() {
+    var square = TestUtils.renderIntoDocument( <Square /> );
+    var squareDOM = TestUtils.findRenderedDOMComponentWithClass(square, 'square');
+    expect(TestUtils.isDOMComponent(squareDOM)).toBeTruthy();
+  });
+
 });
