@@ -50,5 +50,4 @@ describe('Board', function() {
     expect(rootSquareElementChildren.props.draggable).toEqual('true');
   });
 
-
 });

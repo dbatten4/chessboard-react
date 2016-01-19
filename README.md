@@ -20,8 +20,11 @@ open http://localhost:3000
 ```
 ### Testing
 
-The app is currently untested. Future versions of this app will be tested with
-Jest.
+The app is tested with Jest. To run the tests, run the following command from
+your command line while in the root of the directory.
+```
+npm test
+```
 
 ### Dependencies
 
