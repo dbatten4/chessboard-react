@@ -1,7 +1,8 @@
 var React  = require('react');
 var Square = require('./Square.react');
-var Board  = React.createClass({
 var movePiece = require('./Game.react').movePiece;
+
+var Board  = React.createClass({
 
   renderSquare: function(i) {
     var x = i % 16;
