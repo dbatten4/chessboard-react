@@ -54,7 +54,8 @@ var Board  = React.createClass({
     }(0));
 
     return (
-      <div style={{
+      <div className='board'
+           style={{
              width:    '100%',
              height:   '100%',
              display:  'flex',

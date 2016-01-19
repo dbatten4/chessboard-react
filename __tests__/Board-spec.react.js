@@ -15,11 +15,30 @@ describe('Board', function() {
     expect(TestUtils.isCompositeComponent(board)).toBeTruthy();
   });
 
+  it('should render a div', function() {
+    var elt = (<Board piecePosition={[0,0]} />);
+    var shallowRenderer = TestUtils.createRenderer();
+    shallowRenderer.render(elt);
+    var result = shallowRenderer.getRenderOutput();
+    expect(result.type).toBe('div');
+  });
+
   it('should have 256 squares', function() {
-    var Square = require('../js/components/Square.react');
-    var board = TestUtils.renderIntoDocument(<Board piecePosition={[0,0]} />);
+    var Square  = require('../js/components/Square.react');
+    var board   = TestUtils.renderIntoDocument(<Board piecePosition={[0,0]} />);
     var squares = TestUtils.scryRenderedComponentsWithType(board, Square);
     expect(squares.length).toEqual(256);
   });
+
+  it('should instantiate with the piece at 0,0', function() {
+    var elt = (<Board piecePosition={[0,0]} />);
+    var shallowRenderer = TestUtils.createRenderer();
+    shallowRenderer.render(elt);
+    var result = shallowRenderer.getRenderOutput();
+    var rootSquareElementChildren; // root div which contains piece
+    rootSquareElementChildren = result.props.children[0].props.children.props.children;
+    expect(rootSquareElementChildren).not.toBe(null);
+  });
+
 
 });

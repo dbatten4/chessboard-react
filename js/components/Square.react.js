@@ -9,7 +9,7 @@ var Square = React.createClass({
         width:  '100%',
         height: '100%'
       }}>
-        {this.props.children}
+        <span>{this.props.children}</span>
       </div>
     );
   }
