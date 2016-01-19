@@ -20,10 +20,11 @@ var Board  = React.createClass({
            draggable="true">
       </div> :
       null;
+    var colour = (x + y) % 2 === 1 ? 'black' : 'white';
 
     return (
       <div key={i}
-           style={{ width: '6.25%', height: '6.25%' }}
+           style={{ width: '6.25%', height: '6.25%', backgroundColor: colour }}
            onDragOver={this.dragOver}
            onDrop={this.drop.bind(this, x, y)}>
         <Square>
