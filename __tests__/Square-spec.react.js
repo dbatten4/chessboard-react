@@ -15,7 +15,7 @@ describe('Square', function() {
     expect(TestUtils.isCompositeComponent(square)).toBeTruthy();
   });
 
-  it('renders a div', function() {
+  it('renders a DOM element', function() {
     var square = TestUtils.renderIntoDocument( <Square /> );
     var squareDOM = TestUtils.findRenderedDOMComponentWithClass(square, 'square');
     expect(TestUtils.isDOMComponent(squareDOM)).toBeTruthy();
