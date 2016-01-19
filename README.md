@@ -15,6 +15,7 @@ commands from your command line.
 git clone https://github.com/dbatten4/chessboard-react.git
 cd chessboard-react
 npm install
+npm build
 npm start
 open http://localhost:3000
 ```
