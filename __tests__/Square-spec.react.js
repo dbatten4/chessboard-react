@@ -24,11 +24,9 @@ describe('Square', function() {
   });
 
   it('should be able to accept a piece', function() {
-    var elt = (<Square />);
-    var shallowRenderer = TestUtils.createRenderer();
-    shallowRenderer.render(elt);
-    var result = shallowRenderer.getRenderOutput();
-    expect(result.props.children.type).toBe('span'); // not sure how to write the expectation for this test
+    var square = TestUtils.renderIntoDocument( <Square>test</Square> );
+    var item = TestUtils.findRenderedDOMComponentWithClass(square, 'square').getDOMNode().textContent;
+    expect(item).toEqual('test');
   });
 
 });
