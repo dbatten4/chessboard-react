@@ -41,6 +41,16 @@ describe('Board', function() {
     expect(rootSquareElementChildren.props.draggable).toEqual('true');
   });
 
+  it('dragging the piece changes its position', function() {
+    jest.dontMock('../js/components/Game.react.js');
+    var board = TestUtils.renderIntoDocument(<Board piecePosition={[0,0]} />);
+    var square2 = TestUtils.scryRenderedDOMComponentsWithClass(board, 'square')[1];
+    TestUtils.Simulate.dragOver(board);
+    TestUtils.Simulate.drop(board, 1, 0);
+    var result = shallowRenderTheBoard();
+    // expect(result).toEqual();  not sure how to test this one
+  });
+
   function shallowRenderTheBoard() {
     var elt = (<Board piecePosition={[0,0]} />);
     var shallowRenderer = TestUtils.createRenderer();
